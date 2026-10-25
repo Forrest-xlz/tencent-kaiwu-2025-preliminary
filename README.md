@@ -264,7 +264,6 @@ code/agent_diy/
 
 The agent imports competition-provided modules such as `kaiwu_agent`, `tools.train_env_conf_validate`, and `tools.metrics_utils`, in addition to PyTorch and NumPy. The game environment and training integration are supplied by the organizer's Docker setup. Installing ordinary Python packages alone does not provide those services.
 
-The retained source corresponds to the local export **`diy-210490`, saved on August 8, 2025 at 23:03:04**. Model weights, historical exports, training logs, and Docker launch configuration are not included. Restoring a trained policy requires its compatible checkpoint and the competition runtime in addition to this source.
 
 ## References
 
