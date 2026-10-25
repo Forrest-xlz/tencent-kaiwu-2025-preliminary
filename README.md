@@ -199,7 +199,7 @@ The policy uses the clipped surrogate objective from [PPO](https://arxiv.org/abs
 
 $$
 L_\pi=-\mathbb{E}\left[\min\left(\rho_t\hat A_t,
-\operatorname{clip}(\rho_t,1-\epsilon,1+\epsilon)\hat A_t\right)\right].
+\mathrm{clip}(\rho_t,1-\epsilon,1+\epsilon)\hat A_t\right)\right].
 $$
 
 Advantages are computed backward over each collected episode using [Generalized Advantage Estimation](https://arxiv.org/abs/1506.02438):
