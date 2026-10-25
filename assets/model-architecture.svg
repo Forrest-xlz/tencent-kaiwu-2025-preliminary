@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">Goal-conditioned PPO actor–critic architecture</title>
+  <desc id="desc">A 779-dimensional engineered feature vector, including a goal from a fixed rule-based planner, passes through a shared MLP with 128 and 256 units. A policy head with 64 and 16 units feeds masked softmax. A value head with 64 and 1 units produces a scalar value. ReLU follows the hidden layers.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 9 4.5 0 9Z" fill="#64748b"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #172b4d; }
+      .heading { font-size: 25px; font-weight: 700; }
+      .label { font-size: 18px; font-weight: 700; }
+      .body { font-size: 16px; }
+      .small { font-size: 14px; fill: #52647a; }
+      .line { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .card { stroke-width: 1.5; rx: 12; }
+    </style>
+  </defs>
+  <rect width="1200" height="440" rx="18" fill="#f8fafc"/>
+  <text x="36" y="44" class="heading">Goal-conditioned PPO · Low-level actor–critic</text>
+  <text x="36" y="72" class="small">Fixed rule-based planner supplies the subgoal · 166,865 trainable parameters</text>
+
+  <rect x="36" y="158" width="226" height="136" class="card" fill="#eef2ff" stroke="#a5b4fc"/>
+  <text x="149" y="188" text-anchor="middle" class="label">Engineered features</text>
+  <text x="149" y="215" text-anchor="middle" class="body">779 dimensions</text>
+  <text x="149" y="244" text-anchor="middle" class="small">State + goal + local maps</text>
+  <text x="149" y="267" text-anchor="middle" class="small">Visit memory + action mask</text>
+
+  <path d="M262 226H310" class="line"/>
+  <rect x="310" y="170" width="236" height="112" class="card" fill="#e8f5f0" stroke="#85bfa9"/>
+  <text x="428" y="201" text-anchor="middle" class="label">Shared MLP</text>
+  <text x="428" y="231" text-anchor="middle" class="body">779 → 128 → 256</text>
+  <text x="428" y="257" text-anchor="middle" class="small">ReLU after both layers</text>
+
+  <path d="M546 226H578V156H613" class="line"/>
+  <path d="M578 226V318H613" class="line"/>
+  <circle cx="578" cy="226" r="4" fill="#64748b"/>
+
+  <rect x="613" y="110" width="230" height="92" class="card" fill="#e8f5f0" stroke="#85bfa9"/>
+  <text x="728" y="138" text-anchor="middle" class="label">Policy head</text>
+  <text x="728" y="165" text-anchor="middle" class="body">256 → 64 → 16</text>
+  <text x="728" y="188" text-anchor="middle" class="small">ReLU after 64 · linear logits</text>
+
+  <rect x="613" y="272" width="230" height="92" class="card" fill="#e8f5f0" stroke="#85bfa9"/>
+  <text x="728" y="300" text-anchor="middle" class="label">Value head</text>
+  <text x="728" y="327" text-anchor="middle" class="body">256 → 64 → 1</text>
+  <text x="728" y="350" text-anchor="middle" class="small">ReLU after 64 · linear value</text>
+
+  <path d="M843 156H897" class="line"/>
+  <rect x="897" y="110" width="267" height="92" class="card" fill="#fff3df" stroke="#dbb56b"/>
+  <text x="1030.5" y="140" text-anchor="middle" class="label">Masked softmax</text>
+  <text x="1030.5" y="167" text-anchor="middle" class="body">16 action probabilities</text>
+  <text x="1030.5" y="190" text-anchor="middle" class="small">8 movement + 8 flash directions</text>
+
+  <rect x="945" y="218" width="171" height="37" class="card" fill="#fffaf0" stroke="#dbb56b" stroke-dasharray="4 3"/>
+  <text x="1030.5" y="242" text-anchor="middle" class="small">16-way action mask</text>
+  <path d="M1030.5 218V203" class="line" stroke-dasharray="4 3"/>
+
+  <path d="M843 318H897" class="line"/>
+  <rect x="897" y="272" width="267" height="92" class="card" fill="#eef2ff" stroke="#a5b4fc"/>
+  <text x="1030.5" y="307" text-anchor="middle" class="label">Value estimate</text>
+  <text x="1030.5" y="338" text-anchor="middle" class="body">V(state, goal) · 1 scalar</text>
+
+  <text x="36" y="408" class="small">All four 11 × 11 maps are flattened into the input. The active network is an MLP.</text>
+</svg>
